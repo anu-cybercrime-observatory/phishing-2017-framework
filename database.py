@@ -36,7 +36,9 @@ class Database:
         results = []
         cursor = self.db.cursor()
 
-        cursor.execute("SELECT * FROM " + tableName)
+        query = "SELECT * FROM " + tableName
+        cursor.execute(query)
+
         for row in cursor.fetchall():
             item = anonFunc(row)
             results.append(item)

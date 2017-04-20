@@ -77,12 +77,12 @@ def CreateFromSQL(sqlData):
     return result
 
 
-def LoadAll(database):
+def LoadAll(db):
     """
     Loads all the participants data from the database and returns it as a list.
 
     :param database: A database object
     :return:
     """
-    people = database.LoadFromDatabase("user", CreateFromSQL)
+    people = db.LoadFromDatabase("user", CreateFromSQL)
     return people
