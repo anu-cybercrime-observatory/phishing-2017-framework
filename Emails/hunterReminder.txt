@@ -1,0 +1,5 @@
+<p>Hi <USERNAME>,</p>
+<p>Just a reminder that you are a <b>cybercrime hunter</b> for our study. Email scams are one of the most commonly encountered forms of cybercrime and it is important that you remain <i>constantly vigilant</i>.</p>
+<p><b>Your task: report any suspicious email content that you come across during this study.</b> Remember to forward any suspicious content and suspected scams to us at <a href="mailto:cyberobs.anu@gmail.com">cyberobs.anu@gmail.com</a>.</p>
+<p>Good luck!</p>
+<p>Cybercrime Observatory Team</p>
