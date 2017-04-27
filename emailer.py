@@ -3,6 +3,7 @@ import socket
 import sys
 import time
 
+
 connection = ""
 buffer_size = ""
 
@@ -35,6 +36,7 @@ def send_and_receive(data, expected_response):
     code = int(received[:3])
     if code == expected_response:
         print("ok.. ", end="")
+        sys.stdout.flush()
     else:
         print("Error sending message: Code %s expecting %s data transmitted %s" %
               (str(code), str(expected_response), data))

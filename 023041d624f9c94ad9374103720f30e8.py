@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import cgi
 import time
 import database
@@ -22,14 +23,16 @@ try:
     uid = dataString[0:3]
     tid = dataString[3]
     bid = dataString[4:6]
+    ip = os.environ["REMOTE_ADDR"]
     hash = "c30bb76b355a39dcd9e73bfb934b380d"
     hashHalf = dataString[6:]
 
     if hashHalf == hash:
         # finally
         # confirmation of a valid code, so save to the database.
-        insertQuery = "INSERT INTO activity (what, user_id, batch_id, datetime) VALUES (" \
-        + str(int(tid)) + ", " + str(int(uid)) + ", " + str(int(bid)) + ", " + str(int(time.time())) + ")"
+        insertQuery = "INSERT INTO activity (what, user_id, batch_id, datetime, ip_address) VALUES (" \
+                      + str(int(tid)) + ", " + str(int(uid)) + ", " + str(int(bid)) + ", " + str(int(time.time())) \
+                      + ", '" + ip + "')"
 
         db = database.Database()
         db.ExecuteInsert(insertQuery)

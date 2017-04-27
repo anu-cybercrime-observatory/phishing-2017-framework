@@ -1,3 +1,3 @@
-<p>Hi <FIRSTNAME>,</p>
+<p>Dear Sir/Madam,</p>
 <p>Your mailbox is currently at capacity and you are eligible for a free upgrade. Click <a href="<LISTENER>">here</a> to upgrade.
 <p>Thanks,<br>The Outlook Team</p>
