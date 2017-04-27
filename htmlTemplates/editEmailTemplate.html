@@ -20,36 +20,28 @@
             <div class=content>
                 <div class=main>
                     <h1>Edit Phish Email Template</h1>
-                    <hr>
-                    <form method="post" action="editEmailTemplate.py">
-                        <input type="hidden" name="action" value="view" />
-                        <$EMAILS_DROPDOWN>
-                        <input type="submit" name="submit" value="View" />
-                    </form>
-                </div>
-                <hr>
-                <div class="main">
+
                     <form method="post" action="editEmailTemplate.py">
                         <table>
                             <tr>
-                                <td>Template Name:</td><td><input type="text" name="email_name" value="<$EMAIL_NAME>"/></td>
+                                <td>Template Name:</td><td><input type="text" name="template_name" value="<$EMAIL_NAME>"/></td>
                             </tr>
                             <tr>
-                                <td>Subject:</td><td><input type="text" name="email_subject" value="<$EMAIL_SUBJECT>"/></td>
+                                <td>Subject:</td><td><input type="text" name="template_subject" value="<$EMAIL_SUBJECT>"/></td>
                             </tr>
                             <tr>
-                                <td>Originating Email:</td><td><input type="text" name="email_orgName" value="<$EMAIL_ORGEMAIL>"/></td>
+                                <td>Originating Email:</td><td><input type="text" name="template_orgname" value="<$EMAIL_ORGEMAIL>"/></td>
                             </tr>
                             <tr>
-                                <td>Originating Name:</td><td><input type="text" name="email_orgEmail" value="<$EMAIL_ORGNAME>"/></td>
+                                <td>Originating Name:</td><td><input type="text" name="template_orgemail" value="<$EMAIL_ORGNAME>"/></td>
                             </tr>
                             <tr>
-                                <td>Email Body:</td><td><textarea name="email_body" rows="25" cols="90"><$EMAIL_BODY></textarea></td>
+                                <td>Email Body:</td><td><textarea name="template_body" rows="25" cols="90"><$EMAIL_BODY></textarea></td>
                             </tr>
                             <tr>
                                 <td colspan="2">
                                     <input type="hidden" name="email_id" value="<$EMAIL_ID>" />
-                                    <input type="hidden" name="action" value="<$ACTION>" />
+                                    <input type="hidden" name="action" value="save" />
                                     <input type="submit" name="submit" value="Save" />
                                 </td>
                             </tr>

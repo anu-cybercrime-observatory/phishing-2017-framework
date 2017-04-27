@@ -1,4 +1,5 @@
 from database import SQLString
+import os
 
 
 """
@@ -65,17 +66,21 @@ class Email:
         return self._originating_email
 
 
+    def _templateFilename(self):
+        return Email.__template_path + str(self._id) + ".txt"
+
     """
     Refactored this - "template file" now refers to the template name, not a filename.
     """
     def Name(self):
         return self._template_file
 
-    """
-    todo reactor this urgently
-    """
     def Body(self):
-        with open(Email.__template_path + str(self._id) + ".txt") as inputFile:
+        if not os.path.exists(self._templateFilename()):
+            with open(self._templateFilename(), "w") as outputFile:
+                outputFile.write("\n")
+
+        with open(self._templateFilename()) as inputFile:
             lines = inputFile.readlines()
         return "".join(lines)
 
@@ -95,8 +100,12 @@ class Email:
     def SetSubject(self, subject):
         self._subject = subject
 
-    def SetTemplate(self, template):
+    def SetName(self, template):
         self._template_file = template
+
+    def SetBody(self, body):
+        with open(self._templateFilename(), "w") as outputFile:
+            outputFile.write(body)
 
 
     """

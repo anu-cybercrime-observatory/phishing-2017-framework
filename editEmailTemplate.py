@@ -12,7 +12,6 @@ def CreateDefaultTemplateVariables():
     template_data['template_orgname'] = ""
     template_data['template_orgemail'] = ""
     template_data['template_body'] = ""
-    template_data['action'] = "new"
 
     return template_data
 
@@ -31,14 +30,6 @@ def PopulateData(template_data, email_template):
     template_data['template_orgname'] = email_template.OriginatingName()
     template_data['template_orgemail'] = email_template.OriginatingEmail()
     template_data['template_body'] = email_template.Body()
-
-
-def generateEmail(sqlData):
-    res = dict()
-    res['id'] = int(sqlData[0])
-    res['name'] = sqlData[2]
-
-    return res
 
 
 # if we've been asked to display a template, get that template.
@@ -63,29 +54,40 @@ for email in emails:
 
 
 # set some default values for the variables to insert into the template.
-template_data = dict()
-template_data['template_name'] = ""
-template_data['template_subject'] = ""
-template_data['template_orgname'] = ""
-template_data['template_orgemail'] = ""
-template_data['template_body'] = ""
-
-
 template_data = CreateDefaultTemplateVariables()
-if action == "view":
-    template_data['action'] = "save"
+
+if action == "save":
+    if email_id in email_index:
+        # update existing ..
+        email = email_index[email_id]
+        email.SetName(data['template_name'].value)
+        email.SetSubject(data['template_subject'].value)
+        email.SetOriginatingName(data['template_orgname'].value)
+        email.SetOriginatingEmail(data['template_orgemail'].value)
+        email.SetBody(data['template_body'].value)
+
+        db.ExecuteQuery(email.UpdateSQL())
+    else:
+        # insert new
+        email = Email.Email()
+        email.SetName(data['template_name'].value)
+        email.SetSubject(data['template_subject'].value)
+        email.SetOriginatingName(data['template_orgname'].value)
+        email.SetOriginatingEmail(data['template_orgemail'].value)
+
+        id = db.ExecuteInsert(email.InsertSQL())
+
+        email.SetID(id)
+        email.SetBody(data['template_body'].value)
+
+    # redirect to viewEmails list!
+    print("Location: viewEmailTemplates.py\n\n")
+    exit(0)
+
+else:
     if email_id in email_index:
         PopulateData(template_data, email_index[email_id])
 
-elif action == "save":
-    template_data['action'] = "save"
-elif action == "new":
-    template_data['action'] = "save"
-
-
-options = ["<option value='" + str(e.ID()) + "'>" + e.Name() + "</option>" for e in emails]
-emailSelect = "<select name='email_id'><option value='0'>New ..</option>"\
-              + "\n".join(options) + "</select>"
 
 # Print the template out to the screen.
 
@@ -97,8 +99,6 @@ with open("htmlTemplates/editEmailTemplate.html") as inputFile:
 
 for line in lines:
     line = line.strip()
-    line = line.replace("<$ACTION>", template_data['action'])
-    line = line.replace("<$EMAILS_DROPDOWN>", emailSelect)
     line = line.replace("<$EMAIL_ID>", str(email_id))
     line = line.replace("<$EMAIL_NAME>", template_data['template_name'])
     line = line.replace("<$EMAIL_SUBJECT>", template_data['template_subject'])

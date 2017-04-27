@@ -13,7 +13,7 @@ people = participant.LoadAll(database)
 # hard coded the value of the reminder email, because I suck.
 email = None
 for candidate in emails:
-    if candidate.ID() is 3:
+    if candidate.ID() is 2:
         email = candidate
 
 if email:
