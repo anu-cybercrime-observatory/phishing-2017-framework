@@ -1,6 +1,11 @@
 from database import SQLString
 
 
+"""
+
+Note: Refactoring this class so that the **template filename** matches the primary key ID in the database.
+The field 'filename' is now used as the 'template name' text representation only..
+"""
 class Email:
     table_name = "email"
     __template_path = "Emails/"
@@ -53,8 +58,24 @@ class Email:
     def Subject(self):
         return self._subject
 
+    def OriginatingName(self):
+        return self._originating_name
+
+    def OriginatingEmail(self):
+        return self._originating_email
+
+
+    """
+    Refactored this - "template file" now refers to the template name, not a filename.
+    """
+    def Name(self):
+        return self._template_file
+
+    """
+    todo reactor this urgently
+    """
     def Body(self):
-        with open(Email.__template_path + self._template_file) as inputFile:
+        with open(Email.__template_path + str(self._id) + ".txt") as inputFile:
             lines = inputFile.readlines()
         return "".join(lines)
 

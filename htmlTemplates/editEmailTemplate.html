@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8">
+        <title>Edit Template</title>
+    </head>
+    <body>
+        <div class=container>
+            <div class=header>
+                <h1 class=header-heading>SP2017 Control Panel</h1>
+            </div>
+            <div class=nav-bar>
+                <ul class=nav>
+                    <li><a href="#">TBA</a></li>
+                    <li><a href="#">TBA</a></li>
+                    <li><a href="#">TBA</a></li>
+                </ul>
+            </div>
+            <div class=content>
+                <div class=main>
+                    <h1>Edit Phish Email Template</h1>
+                    <hr>
+                    <form method="post" action="editEmailTemplate.py">
+                        <input type="hidden" name="action" value="view" />
+                        <$EMAILS_DROPDOWN>
+                        <input type="submit" name="submit" value="View" />
+                    </form>
+                </div>
+                <hr>
+                <div class="main">
+                    <form method="post" action="editEmailTemplate.py">
+                        <table>
+                            <tr>
+                                <td>Template Name:</td><td><input type="text" name="email_name" value="<$EMAIL_NAME>"/></td>
+                            </tr>
+                            <tr>
+                                <td>Subject:</td><td><input type="text" name="email_subject" value="<$EMAIL_SUBJECT>"/></td>
+                            </tr>
+                            <tr>
+                                <td>Originating Email:</td><td><input type="text" name="email_orgName" value="<$EMAIL_ORGEMAIL>"/></td>
+                            </tr>
+                            <tr>
+                                <td>Originating Name:</td><td><input type="text" name="email_orgEmail" value="<$EMAIL_ORGNAME>"/></td>
+                            </tr>
+                            <tr>
+                                <td>Email Body:</td><td><textarea name="email_body" rows="25" cols="90"><$EMAIL_BODY></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="hidden" name="email_id" value="<$EMAIL_ID>" />
+                                    <input type="hidden" name="action" value="<$ACTION>" />
+                                    <input type="submit" name="submit" value="Save" />
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="footer">
+                Copyright Nick Sif 2017
+            </div>
+        </div>
+    </body>
+</html>
