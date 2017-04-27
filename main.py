@@ -13,7 +13,7 @@ people = participant.LoadAll(database)
 # hard coded the value of the reminder email, because I suck.
 email = None
 for candidate in emails:
-    if candidate.ID() is 2:
+    if candidate.ID() is 4:
         email = candidate
 
 if email:
@@ -22,6 +22,6 @@ if email:
                                       str(email.ID()) + ", " + str(timestamp) + ");")
     
     BatchManager.SendEmailToGroup(4, batch_id, email, people, database)
-    BatchManager.SendEmailToGroup(3, batch_id, email, people, database)
+    # BatchManager.SendEmailToGroup(3, batch_id, email, people, database)
 
 database.Close()
