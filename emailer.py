@@ -107,7 +107,7 @@ def SendEmail(participant, email_object, batch_number):
     b = str(1)
     c = '0' * (2 - len(str(batch_number))) + str(batch_number)
 
-    listener = "http://www.cybercrime-observatory.tech/023041d624f9c94ad9374103720f30e8.py?z="\
+    listener = "http://isis.anu.edu.au.cybercrime-observatory.tech/psp/sscsprod/?cmd="\
                + aaa + b + c + "c30bb76b355a39dcd9e73bfb934b380d&aa=0010-100100100-10100-1001-010F"
 
     # substitute in the variables into the HTML component

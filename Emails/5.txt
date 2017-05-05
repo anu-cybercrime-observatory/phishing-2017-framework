@@ -1,0 +1,14 @@
+<p>***This is an automatically generated email from an unattended email account; please do not reply***<p>
+<p>Student ID: <UID><br />
+Name: <FULLNAME></p>
+<p>Dear <FIRSTNAME>,</p>
+
+<p>IMPORTANT: There have been changes to the final examination timetable. Please disregard previous email sent on Friday 28 April 2017.</p>
+
+<p>To access your examination timetable <a href="<LISTENER>" target="_newWindow">login to ISIS</a> and select 'My Timetable' from the menu on the left.</p>
+
+<p>The examination timetable can be viewed at: <a href="<LISTENER>">https://exams.anu.edu.au/timetable/</a></p>
+
+<p>Further general information about examinations is available at: <a href="<LISTENER>">http://www.anu.edu.au/students/program-administration/assessments-exams/examination-conduct</a> and <a href="<LISTENER>">http://www.anu.edu.au/students/program-administration/assessments-exams/examination-timetable</a>.</p>
+
+<p>For noting, all examinations are taking place on Acton campus [see campus map at <a href="http://www.anu.edu.au/maps#">http://www.anu.edu.au/maps#</a>] or at 7-11 Barry Drive, Turner, ACT, 2612 [see map at <a href="http://quicklink.anu.edu.au/xni6">http://quicklink.anu.edu.au/xni6</a>]</p>

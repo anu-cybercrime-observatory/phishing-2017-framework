@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="getCampaignResults.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Email Campaign Results</title>
+</head>
+    <body onload="when_loaded();">
+        <div class=container>
+            <div class=header>
+                <h1 class=header-heading>SP2017 Control Panel</h1>
+            </div>
+            <div class=nav-bar>
+                <ul class=nav>
+                    <li><a href="#">TBA</a></li>
+                    <li><a href="#">TBA</a></li>
+                    <li><a href="#">TBA</a></li>
+                </ul>
+            </div>
+            <div class=content>
+                <div class=main>
+                    <table id="resultsTable" class="resultsTable">
+                        <tr>
+                            <th class="resultsTableHeader">Email</th>
+                            <th class="resultsTableHeader">Results</th>
+                            <th class="resultsTableHeader">Sent</th>
+                            <th class="resultsTableHeader dropdown">
+                                <div class="dropbtn">Groups</div>
+                                <div class="dropdown-content" id="resultsTableGroupSelector"></div>
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="footer">
+                Copyright Nick Sif 2017
+            </div>
+        </div>
+    </body>
+</html>

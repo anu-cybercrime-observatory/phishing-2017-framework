@@ -9,7 +9,7 @@ The field 'filename' is now used as the 'template name' text representation only
 """
 class Email:
     table_name = "email"
-    __template_path = "Emails/"
+    __template_path = "/var/www/html/phish2017/Emails/"
     __fields = [
         "id",
         "subject",
@@ -77,8 +77,9 @@ class Email:
 
     def Body(self):
         if not os.path.exists(self._templateFilename()):
-            with open(self._templateFilename(), "w") as outputFile:
-                outputFile.write("\n")
+            # with open(self._templateFilename(), "w") as outputFile:
+            #     outputFile.write("\n")
+            print("file not found")
 
         with open(self._templateFilename()) as inputFile:
             lines = inputFile.readlines()

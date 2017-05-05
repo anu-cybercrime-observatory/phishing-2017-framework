@@ -1,5 +1,6 @@
 import emailer
 import time
+import sys
 
 
 def SendEmailToGroup(group_id, batch_id, email, people, db):
@@ -22,6 +23,9 @@ def SendEmailToGroup(group_id, batch_id, email, people, db):
             timestamp = int(time.time())
             db.ExecuteQuery("INSERT INTO activity (what, user_id, batch_id, datetime) VALUES (" +
                             "0, " + str(person._id) + ", " + str(batch_id) + ", " + str(timestamp) + ");")
+
+            print(" sent to " + str(person._id) + "!")
+            sys.stdout.flush()
 
 
 def SendEmailToAll(groups, batch_id, email, people, db):
