@@ -1,13 +1,14 @@
 #!/usr/bin/python3
 
-# Print the template out to the screen.
+from templateGenerator import TemplateGenerator
 
-print("Content-Type: text/html")    # HTML is following
-print()                             # blank line, end of headers
 
-with open("htmlTemplates/viewCampaignResults.html") as inputFile:
-    lines = inputFile.readlines()
+template = TemplateGenerator("viewCampaignResults")
 
-for line in lines:
-    line = line.strip()
-    print(line)
+variables = dict()
+variables['WEBSITE_TITLE'] = "Spear Phishing Control Panel"
+variables['PAGE_HEADING'] = "Viewing Campaign Results"
+variables['PAGE_SCRIPTS'] = "<script src=\"getCampaignResults.js\"></script>"
+variables['PAGE_ONLOAD'] = "onload=\"when_loaded();\""
+
+template.parse(variables)

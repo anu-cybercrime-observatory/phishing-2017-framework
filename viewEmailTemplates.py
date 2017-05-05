@@ -3,6 +3,8 @@
 import database
 import Email
 
+from templateGenerator import TemplateGenerator
+
 
 # load the relevant data from the database.
 db = database.Database()
@@ -21,16 +23,10 @@ template_loop_lines = ["<tr><td>" + e.Name()
                        + "</td></tr>" for e in emails]
 template_loop = "\n".join(template_loop_lines)
 
-# Print the template out to the screen.
+variables = dict()
+variables['WEBSITE_TITLE'] = "Spear Phishing Control Panel"
+variables['PAGE_HEADING'] = "Email Templates"
+variables['TEMPLATE_LOOP'] = template_loop
 
-print("Content-Type: text/html")    # HTML is following
-print()                             # blank line, end of headers
-
-with open("htmlTemplates/viewEmailTemplates.html") as inputFile:
-    lines = inputFile.readlines()
-
-for line in lines:
-    line = line.strip()
-    line = line.replace("<$TEMPLATE_LOOP>", template_loop)
-
-    print(line)
+template = TemplateGenerator("viewEmailTemplates")
+template.parse(variables)

@@ -4,6 +4,8 @@ import cgi
 import database
 import participant
 
+from templateGenerator import TemplateGenerator
+
 
 def generateGroup(sqlData):
     res = dict()
@@ -40,16 +42,12 @@ groups2 = [g['option'] for g in groups]
 
 groupSelect = "<select name='group'>" + "\n".join(groups2) + "</select>"
 
-print("Content-Type: text/html")    # HTML is following
-print()                             # blank line, end of headers
 
-with open("htmlTemplates/viewGroups.html") as inputFile:
-    lines = inputFile.readlines()
+variables = dict()
+variables['WEBSITE_TITLE'] = "Spear Phishing Control Panel"
+variables['PAGE_HEADING'] = "Participant Groups"
+variables['GROUPS_DROPDOWN'] = groupSelect
+variables['GROUP_ROWS'] = peopleRows
 
-for line in lines:
-    line = line.strip()
-    line = line.replace("<$GROUPS_DROPDOWN>", groupSelect)
-    line = line.replace("<$GROUP_ROWS>", peopleRows)
-    print(line)
-
-db.Close()
+template = TemplateGenerator("viewGroups")
+template.parse(variables)

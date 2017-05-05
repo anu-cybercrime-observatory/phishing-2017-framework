@@ -1,40 +1,14 @@
-<html>
-    <head>
-        <title>
-            Viewing Groups
-        </title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <div class=container>
-            <div class=header>
-                <h1 class=header-heading>SP2017 Control Panel</h1>
-            </div>
-            <div class=nav-bar>
-                <ul class=nav>
-                    <li><a href="#">TBA</a></li>
-                    <li><a href="#">TBA</a></li>
-                    <li><a href="#">TBA</a></li>
-                </ul>
-            </div>
-            <div class=content>
                 <div class=main>
-                    <h1>Participant Group Management</h1>
-                    <hr>
                     <p>
                         <form method="post" action="viewGroups.py">
-                            <$GROUPS_DROPDOWN>
+                            <GROUPS_DROPDOWN>
                             <input type="submit" name="submit" value="View">
                         </form>
                     </p>
                     <p>
                         <table>
                             <tr><th>Participant Number</th><th>Group</th></tr>
-                            <$GROUP_ROWS>
+                            <GROUP_ROWS>
                         </table>
                     </p>
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
