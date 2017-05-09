@@ -117,7 +117,7 @@ function updateTable()
 
             newRow = {};
             newRow['id']       = batches[batchKey].id;
-            newRow['subject']  = subjects[batches[batchKey].subject_id];
+            newRow['subject']  = "<a href=\"viewResultsDetail.py?id=" + batchKey + "\">" + subjects[batches[batchKey].subject_id] + "</a>";
             newRow['groups']   = groupHTML.html;
             newRow['sentTime'] = batches[batchKey].formatted_time;
             newRow['results']  = resultValue + " %";

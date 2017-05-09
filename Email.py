@@ -1,5 +1,6 @@
-from database import SQLString
+from database import SQLString, Database
 import os
+import batch
 
 
 """
@@ -27,6 +28,8 @@ class Email:
         self._subject = ""
         self._originating_name = ""
         self._originating_email = ""
+        self._editable = None
+
 
     def __repr__(self):
         fields = Email.__fields + ["From", "From (appearance)", "Body"]
@@ -65,6 +68,21 @@ class Email:
     def OriginatingEmail(self):
         return self._originating_email
 
+    def IsEditable(self):
+        if self._editable is None:
+            self._updateEditableStatus()
+
+        return self._editable
+
+    def _updateEditableStatus(self):
+        """
+        Evaluates whether or not emails using this template have been sent out to users.
+        :return:
+        """
+        query = "SELECT * FROM " + batch.Batch.table_name + " WHERE email_id = " + str(self._id)
+        db = Database()
+        results = db.ExecuteSelectQuery(query)
+        self._editable = not (len(results) > 0)
 
     def _templateFilename(self):
         return Email.__template_path + str(self._id) + ".txt"

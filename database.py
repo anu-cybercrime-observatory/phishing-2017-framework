@@ -45,6 +45,21 @@ class Database:
 
         return results
 
+    def ExecuteSelectQuery(self, query):
+        """
+        Executes the given SQL SELECT query and returns the results as a list of tuples.
+        :param query:
+        :return:
+        """
+        results = []
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        for row in cursor.fetchall():
+            results.append(row)
+
+        return results
+
     def ExecuteQuery(self, query):
         """
         Executes an INSERT, UPDATE or DELETE command on the database.
