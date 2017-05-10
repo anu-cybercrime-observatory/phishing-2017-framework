@@ -13,7 +13,7 @@ template = TemplateGenerator("viewResultDetail")
 variables = dict()
 variables['WEBSITE_TITLE'] = "Spear Phishing Control Panel"
 variables['PAGE_HEADING'] = "Viewing Campaign Results"
-variables['PAGE_SCRIPTS'] = "<script src=\"getResultsDetail.js\"></script>"
+variables['PAGE_SCRIPTS'] = "<script src=\"getResultsDetail.js\"></script><script src=\"Chart.js\"></script>"
 variables['PAGE_ONLOAD'] = "onload=\"when_loaded();\""
 variables['BATCH_ID'] = str(batch_id)
 

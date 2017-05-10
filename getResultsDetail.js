@@ -136,12 +136,15 @@ function updateTable()
 
             newRow = {};
             newRow['id'] = "sub" + groupD.group_id + "dot" + activityKey;
+            newRow['parent_id'] = activityKey;
             newRow['response'] = groupD.group_name + ": " + groupD.count;
             newRow['percentage'] = percentage;
 
             insertNewSubRow(newRow);
         }
     }
+
+    createChart();
 }
 
 
@@ -150,6 +153,8 @@ function insertNewRow(newRow)
     var table = document.getElementById("resultsTable");
     var row = table.insertRow(-1);
     row.setAttribute("id", "resultsTableRow" + newRow['id'], 0);
+    row.setAttribute("class", "hoverable", 0)
+    row.onclick = function () { toggleSubgroupVisibility(this); }
 
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
     var activityCell = row.insertCell(0);
@@ -168,7 +173,7 @@ function insertNewSubRow(newRow)
     var table = document.getElementById("resultsTable");
     var row = table.insertRow(-1);
     row.setAttribute("id", "resultsTableRow" + newRow['id'], 0);
-    row.setAttribute("class", "resultsGroup", 0);
+    row.setAttribute("class", "resultsGroup resultsTableRow" + newRow['parent_id'], 0);
 
     // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
     var activityCell = row.insertCell(0);
@@ -179,6 +184,24 @@ function insertNewSubRow(newRow)
     activityCell.innerHTML = "";
     responseCell.innerHTML = newRow['response'];
     percentCell.innerHTML = newRow['percentage'];
+
+    row.style.display = 'none';
+}
+
+
+function toggleSubgroupVisibility(object)
+{
+    classId = object.id;
+    elements = document.getElementsByClassName(classId);
+
+    if (elements.length === 0)
+        return;
+
+    currentValue = elements[0].style.display;
+    newValue = (currentValue === "none") ? "table-row" : "none";
+
+    for(var i = 0; i < elements.length; i++)
+       elements.item(i).style.display = newValue;
 }
 
 
@@ -204,6 +227,65 @@ function getData()
     });
 }
 
+
+function rgbSequence(sequenceId, alpha)
+{
+    var sequences = [
+        'rgba(255, 99, 132, ',
+        'rgba(255, 99, 132, ',
+        'rgba(99, 255, 132, ',
+        'rgba(132, 99, 255, '
+    ]
+
+    return sequences[sequenceId] + alpha + ")";
+}
+
+
+function createChart()
+{
+    // Lets create some data structures.
+    labels = [];
+    for (var i = 0; i < 24; i ++)
+        labels[i] = (i * 2) + " - " + ((i + 1) * 2);
+
+    dataSets = [];
+    for (activityKey in activities)
+    {
+        if (activityKey != 0)
+        {
+            dataSet = {};
+            dataSet['label'] = activities[activityKey].activity_type;
+            dataSet['backgroundColor'] = rgbSequence(activityKey, 0.2);
+            dataSet['borderColor'] = rgbSequence(activityKey, 1);
+            dataSet['borderWidth'] = 1;
+
+            dataNumbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+            for (groupKey in activities[activityKey].results)
+                for (var counter = 0; counter < 24; counter ++)
+                    dataNumbers[counter] += activities[activityKey].results[groupKey].time_intervals[counter];
+            dataSet['data'] = dataNumbers;
+            dataSets.push(dataSet);
+        }
+    }
+
+    var ctx = document.getElementById("timeSeriesChart");
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: dataSets
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+}
 
 function when_loaded()
 {

@@ -324,3 +324,7 @@ Wide styles
     color: #992211;
     text-decoration: line-through;
 }
+
+.hoverable:hover {
+    background-color: #E7DDDD;
+}
