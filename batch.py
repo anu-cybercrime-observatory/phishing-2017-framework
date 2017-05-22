@@ -46,6 +46,29 @@ class Batch:
 
         return res
 
+    def MaximalActivity(self):
+        """
+        Returns the activity (apart from the zero activity) which has seen the highest level
+        of activity from the participants.
+        :return:
+        """
+        maximal = 0
+        for key in self.activityLog:
+            if key != 0:
+                val = len(self.activityLog[key].keys())
+                if val > maximal:
+                    maximal = val
+
+        res = dict()
+        if 0 in self.activityLog:
+            res[0] = len(self.activityLog[0].keys())
+        else:
+            res[0] = 0
+        res[1] = maximal
+
+        return res
+
+
     """
     Setter functions
     """

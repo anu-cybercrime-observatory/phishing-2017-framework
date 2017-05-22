@@ -32,12 +32,14 @@ def normaliseStartingTimestamp(startingTimestamp):
 def getActivityType(activityId):
     if activityId is 0:
         return "Email Sent"
-    if activityId is 1:
-        return "Link Clicked"
-    if activityId is 2:
-        return "Form Submitted"
 
-    return "Unknown Activity"
+    listener = int(activityId / 10)
+    activity = activityId % 10
+
+    listeners = ['zero', 'Landing Page', 'ISIS', 'Wattle', 'Landing Page']
+    activities = ['zero', 'Page Opened', 'Form Submitted']
+
+    return listeners[listener] + " - " + activities[activity]
 
 
 def getSql(sql):

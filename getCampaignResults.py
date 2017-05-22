@@ -65,7 +65,7 @@ for batch in batches.values():
     jsonDict['group_ids'] = batch.Groups()
     jsonDict['subject_id'] = batch.email_id
     jsonDict['timestamp'] = batch.timestamp
-    jsonDict['results'] = batch.Activities()
+    jsonDict['results'] = batch.MaximalActivity()
     jsonDict['formatted_time'] = datetime.datetime.fromtimestamp(batch.timestamp).strftime('%Y-%m-%d %H:%M:%S')
     results.append(jsonDict)
 

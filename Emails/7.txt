@@ -1,0 +1,56 @@
+<p>Dear <FIRSTNAME>,</p>
+
+<p>Due to a rounding error on the 2017 HECS student contributions, you have been overcharged. The amount could be as high as $430.00 across your Summer/Semester 1/Autumn session enrolments. Please <a href="<ISIS_LISTENER>" target="_newTab">login to ISIS</a> to verify your new student contributions.</p>
+
+<p>2017 enrolments and associated HECS debt have not yet been reported to the Australian Government (Department of Education and the Australian Taxation Office). Summer session and Semester 1 enrolments will be reported at the end of May and we will ensure that the correct amount is reported. New Commonwealth Assistance Notices (CANs) will be issued to those students whose fees have changed.</p>
+
+<p>Our apologies for any inconvenience this has caused.</p>
+
+<table>
+    <tbody>
+        <tr style="height:21.65pt;" height="36">
+            <td style="width:156.7pt;height:21.65pt;padding:0 5.4pt;" valign="top" width="261">
+                <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#1F497D" size="2"><span style="font-size:10pt;">Kind Regards &nbsp;- </span></font></span></font></div>
+            </td>
+            <td style="width:507pt;height:21.65pt;padding:0 5.4pt;" valign="top" width="845">
+                <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#1F497D" size="2"><span style="font-size:10pt;">Student Central- Division of Student Administration - Building X-005, 121 Marcus Clarke, ANU, 2601</span></font></span></font></div>
+            </td>
+        </tr>
+
+        <tr style="height:34.65pt;" height="57">
+            <td style="width:156.7pt;height:34.65pt;padding:0 5.4pt;border-style:none none solid none;border-bottom-width:1pt;border-bottom-color:windowtext;" valign="top" width="261">
+                <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#94AFBD" size="2"><span style="font-size:10pt;">ANU Student Central</span></font></span></font></div>
+            </td>
+            <td style="width:507pt;height:34.65pt;padding:0 5.4pt;border-style:none none solid none;border-bottom-width:1pt;border-bottom-color:windowtext;" valign="top" width="845">
+                <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#1F497D" size="2"><span style="font-size:10pt;">T:&nbsp; 135 ANU (135 268)&nbsp;&nbsp;&nbsp; E: &nbsp;</span></font><a href="mailto:student@anu.edu.au" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;"><font color="#0563C1"><font color="#1F497D" size="2"><span style="font-size:10pt;">student@anu.edu.au</span></font></font></a><font color="#1F497D" size="2"><span style="font-size:10pt;">&nbsp;&nbsp;
+                &nbsp;W: &nbsp;</span></font><a href="<LANDING_LISTENER>" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;"><font color="#0563C1"><font color="#1F497D" size="2"><span style="font-size:10pt;">www.anu.edu.au</span></font></font></a></span></font></div>
+                <div style="margin:0;"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#1F497D" size="2"><span style="font-size:10pt;">&nbsp;</span></font><a href="<LANDING_LISTENER>" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;"><font color="#0563C1"><font color="#1F497D" size="2"><span style="font-size:10pt;">Commitment
+                to Service</span></font></font></a><font color="#1F497D" size="2"><span style="font-size:10pt;"> - </span></font><a href="<LANDING_LISTENER>" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;"><font color="#0563C1"><font color="#1F497D" size="2"><span style="font-size:10pt;">Feedback
+                and Grievances </span></font></font></a></span></font></div>
+            </td>
+        </tr>
+
+        <tr style="height:20.25pt;" height="33">
+            <td colspan="2" style="width:663.7pt;height:20.25pt;padding:0 5.4pt;" valign="top" width="1106">
+                <div style="text-align:center;margin:0;" align="center"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#94AFBD" size="2"><span style="font-size:9pt;"><b>&nbsp;</b></span></font></span></font></div>
+                <div style="text-align:center;margin:0;" align="center"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#94AFBD" size="2"><span style="font-size:9pt;"><b>The Australian National University, Canberra | CRICOS Provider : 00120C
+                | ABN : 52 234 063 906</b></span></font></span></font></div>
+            </td>
+        </tr>
+
+        <tr style="height:23.1pt;" height="38">
+            <td colspan="2" style="width:663.7pt;height:23.1pt;padding:0 5.4pt;" valign="top" width="1106">
+                <div style="text-align:center;margin:0;" align="center"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font face="Arial,sans-serif" color="#002060" size="2"><span style="font-size:10pt;"><b><i>Never miss a thing: follow us on social
+                media today!</i></b></span></font></span></font></div>
+            </td>
+        </tr>
+
+        <tr style="height:37.55pt;" height="62">
+            <td colspan="2" style="width:663.7pt;height:37.55pt;padding:0 5.4pt;" valign="top" width="1106">
+                <div style="text-align:center;margin:0;" align="center"><font face="Calibri,sans-serif" size="2"><span style="font-size:11pt;"><font color="#333333" size="1"><span style="font-size:8pt;">This email message and any accompanying attachments may contain confidential
+                information. If you are not the intended recipient, do not read, use, disseminate, distribute or copy this message or attachments. If you have received this message in error, please delete it immediately. Any views expressed in this message are those of the
+                individual sender, except where the sender expressly, and with authority, states them to be the view of The Australian National University.</span></font></span></font></div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,5 +1,15 @@
                 <div class=main>
                     <div>Please note that you cannot edit an email template once it has been sent out to participants.</div>
+                    <div>
+                        These are the tags that you can use within the email templates:
+                        <ul>
+                            <li>&lt;FIRSTNAME&gt; - The participant's first name.</li>
+                            <li>&lt;FULLNAME&gt; - The participant's full name.</li>
+                            <li>&lt;UID&gt; - The participant's university ID.</li>
+                            <li>&lt;LANDING_LISTENER&gt; - URL to the 'landing page' listener.</li>
+                            <li>&lt;ISIS_LISTENER&gt; - URL to the fake ISIS page we use.</li>
+                        </ul>
+                    </div>
                     <table>
                         <tr><th>Template</th><th>Subject</th><th>From</th><th>Commands</th></tr>
                         <TEMPLATE_LOOP>

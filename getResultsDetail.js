@@ -232,7 +232,7 @@ function rgbSequence(sequenceId, alpha)
 {
     var sequences = [
         'rgba(255, 99, 132, ',
-        'rgba(255, 99, 132, ',
+        'rgba(232, 232, 99, ',
         'rgba(99, 255, 132, ',
         'rgba(132, 99, 255, '
     ]
@@ -249,14 +249,15 @@ function createChart()
         labels[i] = (i * 2) + " - " + ((i + 1) * 2);
 
     dataSets = [];
+    counterIncrementor = 0;
     for (activityKey in activities)
     {
         if (activityKey != 0)
         {
             dataSet = {};
             dataSet['label'] = activities[activityKey].activity_type;
-            dataSet['backgroundColor'] = rgbSequence(activityKey, 0.2);
-            dataSet['borderColor'] = rgbSequence(activityKey, 1);
+            dataSet['backgroundColor'] = rgbSequence(counterIncrementor, 0.2);
+            dataSet['borderColor'] = rgbSequence(counterIncrementor, 1);
             dataSet['borderWidth'] = 1;
 
             dataNumbers = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -265,6 +266,8 @@ function createChart()
                     dataNumbers[counter] += activities[activityKey].results[groupKey].time_intervals[counter];
             dataSet['data'] = dataNumbers;
             dataSets.push(dataSet);
+
+            counterIncrementor ++;
         }
     }
 

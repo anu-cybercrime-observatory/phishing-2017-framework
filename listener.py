@@ -27,11 +27,14 @@ try:
     hash = "c30bb76b355a39dcd9e73bfb934b380d"
     hashHalf = dataString[6:]
 
+    # 1st digit is a '1' for the landing page - this listener - so add 10 to the whatcode.
+    what = str(10 + int(tid))
+
     if hashHalf == hash:
         # finally
         # confirmation of a valid code, so save to the database.
         insertQuery = "INSERT INTO activity (what, user_id, batch_id, datetime, ip_address) VALUES (" \
-                      + str(int(tid)) + ", " + str(int(uid)) + ", " + str(int(bid)) + ", " + str(int(time.time())) \
+                      + what + ", " + str(int(uid)) + ", " + str(int(bid)) + ", " + str(int(time.time())) \
                       + ", '" + ip + "')"
 
         db = database.Database()

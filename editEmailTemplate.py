@@ -104,6 +104,10 @@ for line in lines:
     line = line.replace("<$EMAIL_SUBJECT>", template_data['template_subject'])
     line = line.replace("<$EMAIL_ORGNAME>", template_data['template_orgname'])
     line = line.replace("<$EMAIL_ORGEMAIL>", template_data['template_orgemail'])
-    line = line.replace("<$EMAIL_BODY>", template_data['template_body'])
+
+    bodyCode = template_data['template_body']
+    bodyCode = bodyCode.replace("&", "&amp")
+
+    line = line.replace("<$EMAIL_BODY>", bodyCode)
 
     print(line)

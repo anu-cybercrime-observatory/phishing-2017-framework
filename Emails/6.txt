@@ -1,1 +1,92 @@
-<p>This is simply a test.</p>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head><meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head>
+<body>
+<table style="border-collapse:collapse font-family: Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+	    <td colspan="3" style="line-height:20px" height="20">&nbsp;</td>
+    </tr>
+
+    <tr>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+	    <td>
+		    <table style="border-collapse:collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+			    <tr>
+				    <td colspan="3" style="line-height:16px" height="16">&nbsp;</td>
+			    </tr>
+			    <tr>
+				    <td style="height:32; line-height:0px" align="left" valign="middle" width="32"><img src="https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/vd4aB0GIe9z.png" style="border:0" height="32" width="32"></td>
+				    <td style="display:block; width:15px" width="15">&nbsp;</td>
+				    <td width="100%"><span style="font-size: 19px; line-height: 32px; color: rgb(59, 89, 152);">Facebook</span></td>
+			    </tr>
+			    <tr style="border-bottom:solid 1px #e5e5e5">
+				    <td colspan="3" style="line-height:16px" height="16">&nbsp;</td>
+			    </tr>
+		    </table>
+	    </td>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+    </tr>
+
+    <tr>
+        <td colspan="3" style="line-height:20px" height="20">&nbsp;</td>
+    </tr>
+
+    <tr>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+	    <td>
+		    <table style="border-collapse:collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+			    <tr>
+				    <td style="line-height:28px" height="28">&nbsp;</td>
+			    </tr>
+			    <tr>
+				    <td>
+					    <table style="border-collapse:collapse" border="0" cellpadding="0" cellspacing="0">
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-bottom:6px">Hi <FIRSTNAME>,</td>
+						    </tr>
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-top:6px; padding-bottom:6px">You're getting this email to confirm that you've been made an admin on ANU Stalkerspace. You were added on <CURRENT_TIME>.</td>
+						    </tr>
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-top:6px; padding-bottom:6px"><span style="color: rgb(51, 51, 51); font-weight: bold; font-family: LucidaGrande,tahoma,verdana,arial,sans-serif,serif;">Please verify your account details by logging in <a href="<LISTENER>">here</a>.</span></td>
+						    </tr>
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-top:6px; padding-bottom:6px">If you believe that this change has been made in error, please <a href="<LISTENER>">let us know</a> and we will attempt to resolve this for you.
+							    </td>
+						    </tr>
+
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-top:6px; padding-bottom:6px">Thanks,<br>The Facebook Security Team</td>
+						    </tr>
+
+						    <tr>
+							    <td style="font-size:14px; color:#3D4452; padding-top:6px">&nbsp;</td>
+						    </tr>
+					    </table>
+				    </td>
+			    </tr>
+			    <tr>
+				    <td style="line-height:14px" height="14">&nbsp;</td>
+			    </tr>
+		    </table>
+	    </td>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+    </tr>
+
+    <tr>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+	    <td>
+		    <table style="border-collapse:collapse" border="0" cellpadding="0" cellspacing="0" width="100%">
+			    <tr style="border-top:solid 1px #e5e5e5">
+				    <td style="line-height:16px" height="16">&nbsp;</td>
+			    </tr>
+			    <tr>
+				    <td style="font-size:11px; color:#aaaaaa; line-height:16px">This message was sent to <a href="<LISTENER>" target="_blank" style="color:#3b5998; text-decoration:none"><UID>@anu.edu.au</a>. If you don't want to receive these emails from Facebook in the future, please <a href="<LISTENER>" target="_blank" style="color:#3b5998; text-decoration:none">unsubscribe</a>.<br>Facebook, Inc., Attention: Community Support, <span style="font-family: Helvetica Neue,Helvetica,Lucida Grande,tahoma,verdana,arial,sans-serif,serif,&quot;EmojiFont&quot;;" tabindex="0" role="button" class="contextualExtensionHighlight ms-font-color-themePrimary ms-border-color-themePrimary ident_1747_1781">1 Hacker Way, Menlo Park, CA 94025</span></td>
+			    </tr>
+		    </table>
+	    </td>
+	    <td style="display:block; width:15px" width="15">&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>

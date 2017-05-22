@@ -2,6 +2,7 @@ import Email
 import socket
 import sys
 import time
+import datetime
 
 
 connection = ""
@@ -104,11 +105,15 @@ def SendEmail(participant, email_object, batch_number):
     email_template['to'] = participant.Email()
 
     aaa = '0' * (3 - len(str(participant._id))) + str(participant._id)
-    b = str(1)
     c = '0' * (2 - len(str(batch_number))) + str(batch_number)
 
-    listener = "http://isis.anu.edu.au.cybercrime-observatory.tech/psp/sscsprod/?cmd="\
-               + aaa + b + c + "c30bb76b355a39dcd9e73bfb934b380d&aa=0010-100100100-10100-1001-010F"
+    landing_listener = "http://www.cybercrime-observatory.tech/listener.py?z=" \
+               + aaa + "4" + c + "c30bb76b355a39dcd9e73bfb934b380d&aa=0010-100100100-10100-1001-010F"
+
+    isis_listener = "http://isis.anu.edu.au.cybercrime-observatory.tech/psp/sscsprod/?cmd=" \
+                    + aaa + "2" + c + "c30bb76b355a39dcd9e73bfb934b380d&aa=0010-100100100-10100-1001-010F"
+
+    currTime = datetime.datetime.now().strftime("%b %d, %Y, %I:%m%p")
 
     # substitute in the variables into the HTML component
     email_template['html_component'] \
@@ -118,7 +123,11 @@ def SendEmail(participant, email_object, batch_number):
     email_template['html_component'] \
         = email_template['html_component'].replace("<UID>", participant.uid)
     email_template['html_component'] \
-        = email_template['html_component'].replace("<LISTENER>", listener)
+        = email_template['html_component'].replace("<LANDING_LISTENER>", landing_listener)
+    email_template['html_component'] \
+        = email_template['html_component'].replace("<ISIS_LISTENER>", isis_listener)
+    email_template['html_component'] \
+        = email_template['html_component'].replace("<CURRENT_TIME>", currTime)
 
     # set up the connection
     TCP_IP = '130.56.66.51'
