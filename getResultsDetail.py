@@ -36,7 +36,7 @@ def getActivityType(activityId):
     listener = int(activityId / 10)
     activity = activityId % 10
 
-    listeners = ['zero', 'Landing Page', 'ISIS', 'Wattle', 'Landing Page']
+    listeners = ['zero', 'Landing Page', 'ISIS', 'Wattle', 'Landing Page', 'Email']
     activities = ['zero', 'Page Opened', 'Form Submitted']
 
     return listeners[listener] + " - " + activities[activity]

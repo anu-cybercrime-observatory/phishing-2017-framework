@@ -1,6 +1,4 @@
 <p>Hi <FIRSTNAME>,</p>
-<p>You're getting this email to confirm that you've been made an admin on ANU Stalkerspace. You were added on <CURRENT_TIME>.</p>
-<p>Please verify your account details by logging in <a href="<LISTENER>">here</a>.</p>
-<p>If you believe that this change has been made in error, please <a href="<LISTENER>">let us know</a> and we will attempt to resolve this for you.</p>
+<p>This email is just a test email to see whether this thing that I am doing is going to be a big success or not.</p>
 <p>Thanks,</p>
-<p>The Facebook Security Team</p>
+<p>Nick</p>

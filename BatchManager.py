@@ -14,8 +14,9 @@ def SendEmailToGroup(group_id, batch_id, email, people, db):
     :param db: The open connection to the database.
     :return:
     """
-    db.ExecuteQuery("INSERT INTO batch_group (batch_id, group_id) VALUES ("
-                    + str(batch_id) + ", " + str(group_id) + ");")
+    if batch_id is not 0:
+        db.ExecuteQuery("INSERT INTO batch_group (batch_id, group_id) VALUES ("
+                        + str(batch_id) + ", " + str(group_id) + ");")
 
     for person in people:
         if person.group_id is group_id and person.Active():

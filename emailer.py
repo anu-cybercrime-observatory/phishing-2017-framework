@@ -3,6 +3,8 @@ import socket
 import sys
 import time
 import datetime
+import smtplib
+import hashlib
 
 
 connection = ""
@@ -62,6 +64,7 @@ def send(data):
 def send_email_body(template):
     global connection
 
+    res = []
     # start with the Subject and From data
     send("To: " + template['to'])
     send("Subject: " + template['subject'])
@@ -79,7 +82,7 @@ def send_email_body(template):
     send(template['html_component'] + "\n")
     send("</html>")
 
-    return
+    return # "\n".join(res)
 
 
 """
@@ -100,7 +103,8 @@ def SendEmail(participant, email_object, batch_number):
     email_template['from_appearance'] = email_object.FromAppearance()
     email_template['subject'] = email_object.Subject() + (" - TEST MODE" if test_mode else "")
     email_template['html_component'] = ("<p>TEST EMAIL - please disregard</p>" if test_mode else "") \
-                                       + email_object.Body()
+                                       + email_object.Body() \
+                                       + '<div><img src="<CLEARFIX_LISTENER>" alt="" style="height:1px!important; width:1px!important; border-width:0!important; margin-top:0!important; margin-bottom:0!important; margin-right:0!important; margin-left:0!important; padding-top:0!important; padding-bottom:0!important; padding-right:0!important; padding-left:0!important" border="0"> </div>'
 
     email_template['to'] = participant.Email()
 
@@ -112,6 +116,16 @@ def SendEmail(participant, email_object, batch_number):
 
     isis_listener = "http://isis.anu.edu.au.cybercrime-observatory.tech/psp/sscsprod/?cmd=" \
                     + aaa + "2" + c + "c30bb76b355a39dcd9e73bfb934b380d&aa=0010-100100100-10100-1001-010F"
+
+    hasher = hashlib.md5()
+    timeStr = str(time.time()).encode(encoding='ascii')
+    hasher.update(timeStr)
+    garbage = hasher.hexdigest()
+    initial_garbage = garbage[:16]
+    ending_garbage = garbage[16:]
+
+    clearfix_listener = "http://listen.cybercrime-observatory.tech/listen.gif?x=" \
+                        + initial_garbage + aaa + c + ending_garbage
 
     currTime = datetime.datetime.now().strftime("%b %d, %Y, %I:%m%p")
 
@@ -127,12 +141,31 @@ def SendEmail(participant, email_object, batch_number):
     email_template['html_component'] \
         = email_template['html_component'].replace("<ISIS_LISTENER>", isis_listener)
     email_template['html_component'] \
+        = email_template['html_component'].replace("<CLEARFIX_LISTENER>", clearfix_listener)
+    email_template['html_component'] \
         = email_template['html_component'].replace("<CURRENT_TIME>", currTime)
 
     # set up the connection
     TCP_IP = '130.56.66.51'
     TCP_PORT = 25
     buffer_size = 1024
+
+    # server = "smtp.sendgrid.net"
+    # username = "apikey"
+    # password = "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"
+    #
+    # with smtplib.SMTP(server) as smtp:
+    #     try:
+    #         smtp.login(username, password)
+    #         smtp.sendmail(email_template['from'], email_template['to'], send_email_body(email_template))
+    #         print(send_email_body(email_template))
+    #         print("success")
+    #     except Exception as e:
+    #         print(e)
+    #         print(str(e))
+    #         print ("You have failed")
+    #
+    # exit(0)
 
     connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connection.connect((TCP_IP, TCP_PORT))

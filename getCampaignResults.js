@@ -193,9 +193,21 @@ function insertNewRow(newRow)
 }
 
 
-function when_loaded()
+function refresh_data()
 {
+    subjects = null;
+    groups = null;
+    batches = null;
+
     getSubjects();
     getGroups();
     getBatches();
+}
+
+function when_loaded()
+{
+    // load the data once
+    // set the timers to refresh every five seconds or so.
+    refresh_data();
+    setInterval(refresh_data, 5000);
 }
