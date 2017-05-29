@@ -108,7 +108,8 @@ function updateTable()
 
         for (group in activities[activityKey].results)
         {
-            total += activities[activityKey].results[group].count;
+            if (activities[activityKey].results[group].was_sent === true)
+                total += activities[activityKey].results[group].count;
         }
 
         if (activityKey === "0")
@@ -139,6 +140,8 @@ function updateTable()
             newRow['parent_id'] = activityKey;
             newRow['response'] = groupD.group_name + ": " + groupD.count;
             newRow['percentage'] = percentage;
+            if (groupD.count / totalSent > 1)
+                alert("The thing has happenend! " + groupD.count + ", " + totalSent)
 
             insertNewSubRow(newRow);
         }

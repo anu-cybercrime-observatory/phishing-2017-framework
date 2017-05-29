@@ -36,7 +36,7 @@ def getActivityType(activityId):
     listener = int(activityId / 10)
     activity = activityId % 10
 
-    listeners = ['zero', 'Landing Page', 'ISIS', 'Wattle', 'Landing Page', 'Email']
+    listeners = ['zero', 'Landing Page', 'ISIS', 'Wattle', 'Landing Page', 'Email', 'ANUSA']
     activities = ['zero', 'Page Opened', 'Form Submitted']
 
     return listeners[listener] + " - " + activities[activity]
@@ -89,23 +89,47 @@ for (group_id, group_name) in groups:
     group_index[group_id] = group_name
 
 
-query = "SELECT u.id, u.groupId, a.what, a.datetime FROM user u, batch b, activity a" \
+# Get the groups that received this batch of emails
+query = "SELECT * FROM batch_group WHERE batch_id = " + str(batch_id)
+batchesData = db.ExecuteSelectQuery(query)
+groupsSent = []
+for batchLine in batchesData:
+    batchID, groupID = batchLine
+    groupsSent.append(groupID)
+
+
+# Get the participant group information from the database.
+query = "SELECT * FROM user_group_join"
+group_join_data = db.ExecuteSelectQuery(query)
+user_group_index = dict()
+for row in group_join_data:
+    user_id, group_id = row
+    if user_id not in user_group_index:
+        user_group_index[user_id] = []
+    user_group_index[user_id].append(group_id)
+
+
+# Get the activity information for this batch of emails.
+query = "SELECT u.id, a.what, a.datetime FROM user u, batch b, activity a" \
         " WHERE a.batch_id = b.id AND u.id = a.user_id AND b.id = " + str(batch_id)
 
 holding = dict()
 activityData = db.ExecuteSelectQuery(query)
 startingTimestamp = ""
 for activity in activityData:
-    user_id, group_id, activity_id, timestamp = activity
+    user_id, activity_id, timestamp = activity
 
     if activity_id not in holding:
         holding[activity_id] = dict()
+        for groupKey in group_index:
+            holding[activity_id][groupKey] = dict()
 
-    if group_id not in holding[activity_id]:
-        holding[activity_id][group_id] = dict()
+    for group_id in user_group_index[user_id]:
+        if group_id not in holding[activity_id]:
+            holding[activity_id][group_id] = dict()
 
-    if user_id not in holding[activity_id][group_id]:
-        holding[activity_id][group_id][user_id] = timestamp
+        if user_id not in holding[activity_id][group_id]:
+            holding[activity_id][group_id][user_id] = timestamp
 
     if activity_id is 0:
         if startingTimestamp == "" or int(timestamp) < int(startingTimestamp):
@@ -135,6 +159,7 @@ for key in holding.keys():
         innerDict = dict()
         innerDict['group_id'] = groupKey
         innerDict['group_name'] = group_index[groupKey]
+        innerDict['was_sent'] = (groupKey in groupsSent)
         innerDict['count'] = len(workingDict[groupKey])
         innerDict['time_intervals'] = timeIntervals
         newDict.append(innerDict)
