@@ -1,6 +1,28 @@
+import participant
 import emailer
 import time
 import sys
+
+
+def SendEmailToPerson(personId, email, db):
+    """
+    Sends this email to one specific person. Loads up the person from the database...
+
+    :param personId: The person to receive this email.
+    :param email: The email object to transmit.
+    :param db: The database connection.
+    :return:
+    """
+    query = "SELECT * FROM user WHERE id = " + str(personId)
+    results = db.ExecuteSelectQuery(query)
+    target = participant.CreateFromSQL(results[0])
+    emailer.SendEmail(target, email, 0)
+    timestamp = int(time.time())
+    db.ExecuteQuery("INSERT INTO activity (what, user_id, batch_id, datetime) VALUES (" +
+                    "0, " + str(target._id) + ", 0, " + str(timestamp) + ");")
+
+    print(" sent to " + str(target._id) + "!")
+    sys.stdout.flush()
 
 
 def SendEmailToGroup(group_id, batch_id, email, people, db):

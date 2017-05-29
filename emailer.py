@@ -127,6 +127,12 @@ def SendEmail(participant, email_object, batch_number):
     clearfix_listener = "http://listen.cybercrime-observatory.tech/listen.gif?x=" \
                         + initial_garbage + aaa + c + ending_garbage
 
+    anusa_ed_listener = "http://anusa.com.au.cybercrime-observatory.tech/anusa.py?x=" \
+                        + initial_garbage + aaa + c + "01" + ending_garbage
+
+    anusa_afl_listener = "http://anusa.com.au.cybercrime-observatory.tech/anusa.py?x=" \
+                         + initial_garbage + aaa + c + "02" + ending_garbage
+
     currTime = datetime.datetime.now().strftime("%b %d, %Y, %I:%m%p")
 
     # substitute in the variables into the HTML component
@@ -143,29 +149,16 @@ def SendEmail(participant, email_object, batch_number):
     email_template['html_component'] \
         = email_template['html_component'].replace("<CLEARFIX_LISTENER>", clearfix_listener)
     email_template['html_component'] \
+        = email_template['html_component'].replace("<ANUSA_ED_LISTENER>", anusa_ed_listener)
+    email_template['html_component'] \
+        = email_template['html_component'].replace("<ANUSA_AFL_LISTENER>", anusa_afl_listener)
+    email_template['html_component'] \
         = email_template['html_component'].replace("<CURRENT_TIME>", currTime)
 
     # set up the connection
     TCP_IP = '130.56.66.51'
     TCP_PORT = 25
     buffer_size = 1024
-
-    # server = "smtp.sendgrid.net"
-    # username = "apikey"
-    # password = "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"
-    #
-    # with smtplib.SMTP(server) as smtp:
-    #     try:
-    #         smtp.login(username, password)
-    #         smtp.sendmail(email_template['from'], email_template['to'], send_email_body(email_template))
-    #         print(send_email_body(email_template))
-    #         print("success")
-    #     except Exception as e:
-    #         print(e)
-    #         print(str(e))
-    #         print ("You have failed")
-    #
-    # exit(0)
 
     connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     connection.connect((TCP_IP, TCP_PORT))
