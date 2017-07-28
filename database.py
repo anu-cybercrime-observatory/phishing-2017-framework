@@ -31,7 +31,7 @@ class Database:
         Loads all the things of a certain type from the database.
         :param database:
         :param tableName:
-        :return:
+        :return: A list of those things.
         """
         results = []
         cursor = self.db.cursor()

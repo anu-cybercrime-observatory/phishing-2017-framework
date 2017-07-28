@@ -26,6 +26,8 @@ template_loop = "\n".join(template_loop_lines)
 variables = dict()
 variables['WEBSITE_TITLE'] = "Spear Phishing Control Panel"
 variables['PAGE_HEADING'] = "Email Templates"
+variables['PAGE_SCRIPTS'] = ""
+variables['PAGE_ONLOAD'] = ""
 variables['TEMPLATE_LOOP'] = template_loop
 
 template = TemplateGenerator("viewEmailTemplates")

@@ -207,7 +207,7 @@ function refresh_data()
 function when_loaded()
 {
     // load the data once
-    // set the timers to refresh every five seconds or so.
+    // set the timers to refresh every five minutes or so.
     refresh_data();
-    setInterval(refresh_data, 5000);
+    setInterval(refresh_data, 300000);
 }
